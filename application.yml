@@ -1,0 +1,65 @@
+management:
+  context-path: /
+spring:  
+  cloud:
+    config:
+      uri: http://localhost:15010/config/
+# For using Kafka binding and the message communication
+#    stream:
+#      kafka:
+#        binder:
+#          brokers:
+#            - localhost
+#          zk-nodes:
+#            - localhost 
+#      bindings:
+#        bindingnameIn:
+#          destination: arbitary.data
+#          group: msname
+#          content-type: application/x-java-serialized-object;type=classfullyqualifiedpath
+#          #content-type: application/json
+#        bindingnameOut:
+#          destination: arbitary.data
+#          content-type: application/x-java-serialized-object;type=classfullyqualifiedpath
+#          #content-type: application/json
+
+  data:
+    mongodb:      
+      uri: mongodb://localhost:27017/dev
+      
+# For zipkin implementation for aplication performance monitoring
+#  zipkin:
+#    enabled: false
+#    compression:
+#      enabled: true
+#    base-url: Zipkin Uri
+#  sleuth:
+#    sampler:
+#      percentage: 1.0
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30 
+    lease-expiration-duration-in-seconds: 60    
+    status-page-url-path: ${server.context-path}/info    
+    health-check-url-path: ${server.context-path}/health
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:15030/eureka   
+# For oauth2 implementation
+#security:
+#  oauth2:
+#    client:
+#      client-id: defaultuserid
+#      client-secret: passw0rd
+#      access-token-uri: http://localhost:15020/oauth/token
+#      user-authorization-uri: http://localhost:15020/oauth/authorize
+#      registered-redirect-uri: http://localhost:9090/client/home.html      
+#      scope: write
+#      auto-approve-scopes: read,write
+#    resource:
+#      user-info-uri: http://localhost:15020/user
+
