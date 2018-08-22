@@ -42,13 +42,13 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 30 
     lease-expiration-duration-in-seconds: 60    
-    status-page-url-path: ${server.context-path}/info    
-    health-check-url-path: ${server.context-path}/health
+    #status-page-url-path: ${server.context-path}/info    
+    #health-check-url-path: ${server.context-path}/health
   client:
     enabled: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:15030/eureka   
+      defaultZone: http://127.0.0.1:15030/eureka   
 # For oauth2 implementation
 #security:
 #  oauth2:
